@@ -29,9 +29,11 @@ def osmoteme(points):
     p42 = np.cross(np.cross(xb, points[2]), np.cross(zb, points[6]))
     p43 = np.cross(np.cross(yb, points[0]), np.cross(zb, points[6]))
 
+
     p4 = (p41 + p42 + p43) / 3
 
-    res = np.array([np.round(p4[0] / p4[2]), np.round(p4[1] / p4[2])])
+    p4 = p4 / p4[2]
+    res = np.array([round(p4[0]), round(p4[1]), 1])  
 
     return res
 
